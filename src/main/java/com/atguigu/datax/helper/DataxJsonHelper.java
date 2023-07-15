@@ -14,8 +14,22 @@ public class DataxJsonHelper {
     private final JSONObject outputConfig = JSONUtil.parseObj("{\"job\":{\"setting\":{\"speed\":{\"channel\":1}},\"content\":[{\"reader\":{\"name\":\"hdfsreader\",\"parameter\":{\"path\":\"${exportdir}\",\"defaultFS\":\"\",\"column\":[\"*\"],\"fileType\":\"text\",\"encoding\":\"UTF-8\",\"fieldDelimiter\":\"\\t\",\"nullFormat\":\"\\\\N\"}},\"writer\":{\"name\":\"mysqlwriter\",\"parameter\":{\"writeMode\":\"replace\",\"username\":\"\",\"password\":\"\",\"column\":[],\"connection\":[{\"jdbcUrl\":\"\",\"table\":[]}]}}}]}}");
 
     // Hadoop HA 集群
-//    private final JSONObject inputConfig = JSONUtil.parseObj("{\"job\": {\"content\": [{\"reader\": {\"name\": \"mysqlreader\",\"parameter\": {\"column\": [],\"connection\": [{\"jdbcUrl\": [],\"table\": []}],\"password\": \"\",\"splitPk\": \"\",\"username\": \"\"}},\"writer\": {\"name\": \"hdfswriter\",\"parameter\": {\"column\": [],\"compress\": \"gzip\",\"defaultFS\": \"hdfs://mycluster\",\"dfs.nameservices\": \"mycluster\",\"dfs.ha.namenodes.mycluster\": \"namenode1,namenode2\",\"dfs.namenode.rpc-address.aliDfs.namenode1\": \"hdfs://com.tstzyls-hadoop101:8020\",\"dfs.namenode.rpc-address.aliDfs.namenode2\": \"hdfs://com.tstzyls-hadoop102:8020\",\"dfs.client.failover.proxy.provider.mycluster\": \"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider\",\"fieldDelimiter\": \"\\t\",\"fileName\": \"content\",\"fileType\": \"text\",\"path\": \"${targetdir}\",\"writeMode\": \"truncate\",\"nullFormat\": \"\"}}}],\"setting\": {\"speed\": {\"channel\": 1}}}}");
-//    private final JSONObject outputConfig = JSONUtil.parseObj("{\"job\": {\"setting\": {\"speed\": {\"channel\": 1}},\"content\": [{\"reader\": {\"name\": \"hdfsreader\",\"parameter\": {\"path\": \"${exportdir}\",\"defaultFS\": \"\",\"dfs.nameservices\": \"mycluster\",\"dfs.ha.namenodes.mycluster\": \"namenode1,namenode2\",\"dfs.namenode.rpc-address.aliDfs.namenode1\": \"hdfs://com.tstzyls-hadoop101:8020\",\"dfs.namenode.rpc-address.aliDfs.namenode2\": \"hdfs://com.tstzyls-hadoop102:8020\",\"dfs.client.failover.proxy.provider.mycluster\": \"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider\",\"column\": [\"*\"],\"fileType\": \"text\",\"encoding\": \"UTF-8\",\"fieldDelimiter\": \"\\t\",\"nullFormat\": \"\\\\N\"}},\"writer\": {\"name\": \"mysqlwriter\",\"parameter\": {\"writeMode\": \"replace\",\"username\": \"\",\"password\": \"\",\"column\": [],\"connection\": [{\"jdbcUrl\": [],\"table\": []}]}}}]}}");
+    /*
+    private final JSONObject inputConfig = JSONUtil.parseObj("{\"job\":{\"content\":[{\"reader\":{\"name\":\"mysqlreader\",\"parameter\":{\"column\":[],\"connection\":[{\"jdbcUrl\":[],\"table\":[]}],\"password\":\"\",\"splitPk\":\"\",\"username\":\"\"}},\"writer\":{\"name\":\"hdfswriter\",\"parameter\":{\"column\":[],\"compress\":\"gzip\",\"defaultFS\":\"\",\"fieldDelimiter\":\"\\t\",\"fileName\":\"content\",\"fileType\":\"text\",\"path\":\"${targetdir}\",\"writeMode\":\"truncate\",\"hadoopConfig\":{\n" +
+            "         \"dfs.nameservices\": \"mycluster\",\n" +
+            "         \"dfs.ha.namenodes.mycluster\": \"nn1,nn2\",\n" +
+            "         \"dfs.namenode.rpc-address.mycluster.nn1\": \"hadoop102:8020\",\n" +
+            "         \"dfs.namenode.rpc-address.mycluster.nn2\": \"hadoop103:8020\",\n" +
+            "         \"dfs.client.failover.proxy.provider.mycluster\": \"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider\"\n" +
+            " },\"nullFormat\":\"\"}}}],\"setting\":{\"speed\":{\"channel\":1}}}}");
+    private final JSONObject outputConfig = JSONUtil.parseObj("{\"job\":{\"setting\":{\"speed\":{\"channel\":1}},\"content\":[{\"reader\":{\"name\":\"hdfsreader\",\"parameter\":{\"path\":\"${exportdir}\",\"defaultFS\":\"\",\"column\":[\"*\"],\"fileType\":\"text\",\"encoding\":\"UTF-8\",\"fieldDelimiter\":\"\\t\",\"hadoopConfig\":{\n" +
+            "         \"dfs.nameservices\": \"mycluster\",\n" +
+            "         \"dfs.ha.namenodes.mycluster\": \"nn1,nn2\",\n" +
+            "         \"dfs.namenode.rpc-address.mycluster.nn1\": \"hadoop102:8020\",\n" +
+            "         \"dfs.namenode.rpc-address.mycluster.nn2\": \"hadoop103:8020\",\n" +
+            "         \"dfs.client.failover.proxy.provider.mycluster\": \"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider\"\n" +
+            " },\"nullFormat\":\"\\\\N\"}},\"writer\":{\"name\":\"mysqlwriter\",\"parameter\":{\"writeMode\":\"replace\",\"username\":\"\",\"password\":\"\",\"column\":[],\"connection\":[{\"jdbcUrl\":\"\",\"table\":[]}]}}}]}}");
+     */
 
     public DataxJsonHelper() {
         // 获取 Reader 和 Writer 配置
